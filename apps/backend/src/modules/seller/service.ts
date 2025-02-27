@@ -9,7 +9,6 @@ import {
   MedusaService
 } from '@medusajs/framework/utils'
 
-import { SELLER_MODULE } from '.'
 import { Invite, Member, Seller } from './models'
 import { MemberInviteDTO } from './types'
 
@@ -37,7 +36,7 @@ class SellerModuleService extends MedusaService({
 
     this.httpConfig_ = configModule.projectConfig.http
 
-    const moduleDef = configModule.modules?.[SELLER_MODULE]
+    const moduleDef = configModule.modules?.["seller"]
 
     const options =
       typeof moduleDef !== 'boolean'
