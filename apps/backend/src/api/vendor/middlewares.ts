@@ -3,6 +3,8 @@ import { unlessBaseUrl } from '#/shared/infra/http/utils'
 import { MiddlewareRoute, authenticate } from '@medusajs/framework'
 
 import { vendorCors } from './cors'
+import { vendorCustomerGroupsMiddlewares } from './customer-groups/middlewares'
+import { vendorCustomersMiddlewares } from './customers/middlewares'
 import { vendorFulfillmentSetsMiddlewares } from './fulfillment-sets/middlewares'
 import { vendorInventoryItemsMiddlewares } from './inventory-items/middlewares'
 import { vendorInvitesMiddlewares } from './invites/middlewares'
@@ -12,6 +14,7 @@ import { vendorPayoutMiddlewares } from './payouts/middlewares'
 import { vendorProductsMiddlewares } from './products/middlewares'
 import { vendorRequestsMiddlewares } from './requests/middlewares'
 import { vendorReturnRequestsMiddlewares } from './return-request/middlewares'
+import { vendorSalesChannelMiddlewares } from './sales-channels/middlewares'
 import { vendorSellersMiddlewares } from './sellers/middlewares'
 import { vendorShippingOptionsMiddlewares } from './shipping-options/middlewares'
 import { vendorStockLocationsMiddlewares } from './stock-locations/middlewares'
@@ -63,5 +66,8 @@ export const vendorMiddlewares: MiddlewareRoute[] = [
   ...vendorOrderMiddlewares,
   ...vendorReturnRequestsMiddlewares,
   ...vendorInventoryItemsMiddlewares,
-  ...vendorRequestsMiddlewares
+  ...vendorRequestsMiddlewares,
+  ...vendorSalesChannelMiddlewares,
+  ...vendorCustomersMiddlewares,
+  ...vendorCustomerGroupsMiddlewares
 ]
